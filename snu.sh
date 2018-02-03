@@ -17,8 +17,8 @@ Welcome to the Simbel Network Utility. What would you like to do?
 2: Show existing Ethereum accounts
 3: Start mining
 4: Compile contract
-5: \033[0;32mStart Simbel${NC}
-\033[1;37m6: Show network settings${NC}
+5: Start Simbel
+6: Show network settings
 7: Add peer
 8: Launch private network
 9: Exit
@@ -32,13 +32,13 @@ read -p "
 	#tmux kill-session -t ipfs
 
 	read -sp "Choose a password: " pass        
-	echo "personal.newAccount(\"$pass\")" | ./geth --verbosity 1 --datadir=$PWD/simbel/data console 
+	echo "personal.newAccount(\"$pass\")" | geth --verbosity 1 --datadir=$PWD/simbel/data console 
     fi
     if [ "$choice" = 2 ]; then
 	tmux kill-session -t geth
 	#tmux kill-session -t ipfs
 
-	./geth --verbosity 1 --datadir=$PWD/simbel/data console <<< $'eth.accounts'
+	geth --verbosity 1 --datadir=$PWD/simbel/data console <<< $'eth.accounts'
 
 	echo $PID
     fi
@@ -61,7 +61,7 @@ read -p "
 	if [ -z "$rpcport" ]; then
 	    rpcport=8545
 	fi
-	./geth --verbosity 3 --datadir=$PWD/simbel/data --mine --minerthreads=1 --etherbase "$addr"
+	geth --verbosity 3 --datadir=$PWD/simbel/data --mine --minerthreads=1 --etherbase "$addr"
 
     fi
     if [ "$choice" = 4 ]; then
@@ -88,11 +88,11 @@ read -p "
 	    rpcport=8545
 	fi
 	# create geth.ipc file
-       echo "exit" | ./geth --verbosity 2 --datadir=$PWD/simbel/data --networkid "$networkId" --port "$port" --rpc --rpcport "$rpcport" console		
+       echo "exit" | geth --verbosity 2 --datadir=$PWD/simbel/data --networkid "$networkId" --port "$port" --rpc --rpcport "$rpcport" console		
 	# before starting Simbel, need to start IPFS and geth daemons
 	#tmux new-session -d -s geth "geth --verbosity 2 --datadir=$PWD/simbel/data --networkid 4828 --port 30303 --rpcapi=\"db,eth,net,personal,web3\" --rpc --rpcport 8545 console"
 
-        tmux new-session -d -s geth "./geth --verbosity 3 --datadir=$PWD/simbel/data --networkid $networkId --port $port  --rpcapi=\"db,eth,net,personal,web3\" --rpc --rpcport $rpcport console"
+        tmux new-session -d -s geth "geth --verbosity 3 --datadir=$PWD/simbel/data --networkid $networkId --port $port  --rpcapi=\"db,eth,net,personal,web3\" --rpc --rpcport $rpcport console"
  
 	#tmux new-session -d -s ipfs 'ipfs daemon'
 	sleep 5
@@ -102,7 +102,7 @@ read -p "
 
     if [[ "$choice" = 6 ]]; then
 
-	output="$(./geth --datadir=$PWD/simbel/data console <<< $'admin.nodeInfo')"
+	output="$(geth --datadir=$PWD/simbel/data console <<< $'admin.nodeInfo')"
 	echo ""
 	echo ""
 	echo ""
@@ -173,7 +173,7 @@ read -p "
 	if [ -z "$rpcport" ]; then
 	    rpcport=8545
 	fi
-       ./geth --verbosity 2 --datadir=$PWD/simbel/data --networkid "$networkId" --port "$port" --rpc --rpcport "$rpcport" console
+       geth --verbosity 2 --datadir=$PWD/simbel/data --networkid "$networkId" --port "$port" --rpc --rpcport "$rpcport" console
    fi
 
     if [[ "$choice" = 9 ]] || [[ "$choice" == "exit" ]] || [[ "$choice" == "quit" ]]; then

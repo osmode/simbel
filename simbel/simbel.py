@@ -22,7 +22,7 @@ class Simbel:
 		self.frame = frame
 		self.x=150	# Center Point x  
 		self.y=150	# Center Point
-		self.length=50	# Stick Length
+		self.length=75	# Stick Length
 		self.creating_all_function_trigger()
 		# self.peers keys are enodes
 		# self.peers values are timestamps
@@ -39,7 +39,7 @@ class Simbel:
 		if hasattr(self,'simbel_says_label'):
 			return
 
-		self.simbel_says_label = Label(self.frame, text= (text or 'Just a moment while we connect to the network...'))
+		self.simbel_says_label = Label(self.frame, text= (text or 'Press the Launch button to connect to the Simbel network...'))
 		self.simbel_says_label.grid(row=4,column=0)
 
 	def update_simbel_says_label(self, new_text):
@@ -58,14 +58,14 @@ class Simbel:
 
 	# Creating Background
 	def creating_background_(self):
-		clock_gif_path = os.getcwd()+'/images/clock.gif'
+		clock_gif_path = os.getcwd()+'/images/clock2.gif'
 		self.image=Tkinter.PhotoImage(file=clock_gif_path)
 		self.canvas.create_image(150,150, image=self.image)
 		return
 
 	# creating Canvas
 	def create_canvas_for_shapes(self):
-		self.canvas=Tkinter.Canvas(self.frame )
+		self.canvas=Tkinter.Canvas(self.frame, width=300, height=300 )
 		self.canvas.grid(row=3,column=0)
 		return
 

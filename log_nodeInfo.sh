@@ -1,7 +1,7 @@
 #!/bin/bash
 rm $PWD/simbel/nodeInfo.ds
 
-output="$(./geth --datadir=$PWD/simbel/data console <<< $'admin.nodeInfo')"
+output="$(geth --datadir=$PWD/simbel/data console <<< $'admin.nodeInfo')"
 
 if [[ "$output" =~ \"enode[^,]* ]]; then
     echo "your enode is:  ${BASH_REMATCH[0]}"

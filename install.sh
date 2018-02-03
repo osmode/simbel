@@ -26,7 +26,6 @@ Your choice> " choice
 
 	echo ""
 	os="$(uname -s)"
-	arch="$(dpkg --print-architecture)"
 	if [ "$os" = 'Darwin' ]; then
 		echo "It appears you're installing Simbel on a Mac."
 
@@ -202,7 +201,7 @@ Your choice> " choice
 
 	chmod +x geth
 	chmod +x log_nodeInfo.sh
-	./geth --datadir=$PWD/simbel/data init $PWD/simbel/genesis.json
+	geth --datadir=$PWD/simbel/data init $PWD/simbel/genesis.json
 
         read -p "Enter your network id (or leave blank for default value 4828): " networkId
         read -p "Enter port (or leave blank for default value 30303): " port
@@ -218,7 +217,7 @@ Your choice> " choice
             rpcport=8545
         fi
 
-        echo "exit" | ./geth --verbosity 2 --datadir=$PWD/simbel/data --networkid "$networkId" --port "$port" --rpc --rpcport "$rpcport" console
+        echo "exit" | geth --verbosity 2 --datadir=$PWD/simbel/data --networkid "$networkId" --port "$port" --rpc --rpcport "$rpcport" console
 
 	#rm -r $PWD/go-ipfs
 	# save enode information

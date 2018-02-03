@@ -27,6 +27,7 @@ Simbel is an Ethereum operating system for knowledge creation and sharing
 ## Universal Consensus Time
 Simbel sets network time by blockchain consensus. 
 
+![Simbel](https://s3-us-west-1.amazonaws.com/ddash/simbel.png)
 
 ## Manifesto 
 The Manifesto contract allows participants to create a manifesto through a transparent voting process. Anyone can submit and vote on proposals. To interface with your own custom voting contracts (on any Ethereum network), simply replace the default Manifesto.sol address with your contract's address.
