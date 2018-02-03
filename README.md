@@ -47,7 +47,7 @@ Downlod or clone this repository to your machine, and navigate to that directory
 Allow execution of installation and network deployment scripts. 
 Allow execution of the Go Ethereum client (binary optimized for ARM architecture).
 ```
-chmod +x *.sh geth
+chmod +x *.sh 
 ```
 
 2. Installation
