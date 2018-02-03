@@ -24,6 +24,7 @@ Your choice> " choice
 	#tmux kill-session -t ipfs
 	echo -e "\033[1;32mSimbel will now attempt to install necessary dependencies on your machine. \033[0m"
 
+
 	echo ""
 	os="$(uname -s)"
 	if [ "$os" = 'Darwin' ]; then
@@ -108,6 +109,7 @@ Your choice> " choice
 	fi
 	if [ "$os" = 'Linux' ]; then
 		echo "Installing Ubuntu dependencies..."
+		arch="$(dpkg  --print-architecture)"
 		if [[ "$arch" == 'armhf' ]]; then
 			echo -e "\033[0;31mIt appears you're installing Simbel on a Raspberry Pi!  :)"
 
@@ -115,12 +117,16 @@ Your choice> " choice
 
 		sudo apt-get update
 		sudo apt-get install tmux
-		#sudo apt-get install software-properties-common
-		#sudo add-apt-repository -y ppa:ethereum/ethereum
-		#sudo apt-get install ethereum
-		#sudo add-apt-repository ppa:ethereum/ethereum
-		#sudo apt-get update
-		#sudo apt-get install solc
+		sudo apt-get install git 
+		arch="$(dpkg  --print-architecture)"
+		if [[ "$arch" -ne 'armhf' ]]; then
+			sudo apt-get install software-properties-common
+			sudo add-apt-repository -y ppa:ethereum/ethereum
+			sudo apt-get install ethereum
+			sudo add-apt-repository ppa:ethereum/ethereum
+			sudo apt-get update
+			sudo apt-get install solc
+		fi
 	    	sudo apt-get install python3-pip
 
 	fi
@@ -199,13 +205,16 @@ Your choice> " choice
 	sudo echo "  \"timestamp\"  : \"0x00\" " >> $PWD/simbel/genesis.json
 	sudo echo "}" >> $PWD/simbel/genesis.json
 
-	chmod +x geth
-	chmod +x log_nodeInfo.sh
-	geth --datadir=$PWD/simbel/data init $PWD/simbel/genesis.json
+	arch="$(dpkg  --print-architecture)"
+	if [[ "$arch" == 'armhf' ]]; then
+		./geth --datadir=$PWD/simbel/data init $PWD/simbel/genesis.json
+	else
+		geth --datadir=$PWD/simbel/data init $PWD/simbel/genesis.json
+	fi
 
-        read -p "Enter your network id (or leave blank for default value 4828): " networkId
-        read -p "Enter port (or leave blank for default value 30303): " port
-        read -p "Enter rpc port (or leave blank for default value 8545): " rpcport
+        #read -p "Enter your network id (or leave blank for default value 4828): " networkId
+        #read -p "Enter port (or leave blank for default value 30303): " port
+        #read -p "Enter rpc port (or leave blank for default value 8545): " rpcport
 
         if [ -z "$networkId" ]; then
             networkId=4828
@@ -216,8 +225,11 @@ Your choice> " choice
         if [ -z "$rpcport" ]; then
             rpcport=8545
         fi
-
-        echo "exit" | geth --verbosity 2 --datadir=$PWD/simbel/data --networkid "$networkId" --port "$port" --rpc --rpcport "$rpcport" console
+	if [[ "$arch" == 'armhf' ]]; then
+		 echo "exit" | ./geth --verbosity 2 --datadir=$PWD/simbel/data --networkid "$networkId" --port "$port" --rpc --rpcport "$rpcport" console
+	else
+        	echo "exit" | geth --verbosity 2 --datadir=$PWD/simbel/data --networkid "$networkId" --port "$port" --rpc --rpcport "$rpcport" console
+	fi
 
 	#rm -r $PWD/go-ipfs
 	# save enode information
