@@ -119,6 +119,7 @@ Save Ethereum contracts in the *source* directory with the .sol extension.
 *geth* is the only binary in the repository and is optimized for Raspberry Pi-optimized (ARM architecture).
 
 SHA256SUM:  188a17aadaebfd08b3ea7a03299bc5ff56929d7f250bd390803ee610a05f2487
+
 MD5SUM db8c28e38ee338b8ff8ac5a77cd9b052
 
 ## NFO Coin
