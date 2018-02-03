@@ -32,7 +32,7 @@ Simbel sets network time by blockchain consensus.
 The Manifesto contract allows participants to create a manifesto through a transparent voting process. Anyone can submit and vote on proposals. To interface with your own custom voting contracts (on any Ethereum network), simply replace the default Manifesto.sol address with your contract's address.
 
 
-![Manifesto Contract](https://s3-us-west-1.amazonaws.com/simbel/manifesto5.png)
+![Manifesto Contract](https://s3-us-west-1.amazonaws.com/ddash/manifesto5.png)
 
 ## Why Simbel?
 Simbel combines the benefits of private Ethereum networks with the benefits of the Ethereum main network. Simbel allows Ethereum applications to run cheaply and securely on private Ethereum networks while enabling their integration with the main Ethereum network. The result is greatly reduced development and operational costs associated with private Ethereum networks, combined with the ability to transfer value and information among the main Ethereum network and private Ethereum networks.
