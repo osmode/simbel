@@ -1,4 +1,4 @@
-#Simbel - Ethereum Operating System 
+# Simbel - Ethereum Operating System 
 For Raspberry Pi
 
 ![Simbel](https://s3-us-west-1.amazonaws.com/ddash/simbel.png)
