@@ -121,6 +121,11 @@ while 1:
 		print("Looking for this IPFS hash on the blockchain:",ipfs_hash)
 		bci.get_record(ipfs_hash)
 
+	if 'set gas' in result:
+		new_gas_amount = get_value_from_index(result,2,convert_to="integer")
+		print("Setting gas to ",new_gas_amount,"...")
+		bci.set_gas(new_gas_amount)
+
 	if ( ('broadcast' in result) or BROADCAST):
 		if not ethereum_acc_pass:
 			print("Enter password for account "+bci.eth_accounts[0]+":")

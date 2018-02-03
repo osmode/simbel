@@ -1,21 +1,17 @@
-Simbel - Ethereum Operating System
-======================================================
-[Github repository](https://github.com/simbel/simbel)
-
-[Project website](https://simbel.github.io/simbel/)
-------------------------------------------------------
+Simbel - Ethereum Operating System 
+For Raspberry Pi
 
 ![Simbel](https://s3-us-west-1.amazonaws.com/ddash/simbel.png)
 
 ## What is Simbel?
 ---
-Simbel is an Ethereum operating system for knowledge creation and sharing
+Simbel is an Ethereum Operating System for Knowledge Creation and Sharing
 
 * Transfer value and information across Ethereum networks
 
 * Abstract creation of GUI interfaces for Ethereum contracts
 
-* Sysadmin for Ethereum networks  
+* Deploy and manage Ethereum networks  
 
 * Interface with the Interplanetary File System ([IPFS](https://github.com/ipfs/ipfs)) to minimize on-chain storage 
 
@@ -25,14 +21,16 @@ Simbel is an Ethereum operating system for knowledge creation and sharing
 ### Our goal is to build open economies for information exchange within and among organizations.
 
 ## Universal Consensus Time
-Simbel sets network time by blockchain consensus. 
+Simbel sets network time through consensus among Simbel network partipants. The clock on the home screen displays the Universal Consensus Time. 
 
+## Your Contract Here
+Abstract graphical interfaces for your own Solidity contracts using Python, Javascript, and other frameworks. 
 
-## Manifesto 
-The Manifesto contract allows participants to create a manifesto through a transparent voting process. Anyone can submit and vote on proposals. To interface with your own custom voting contracts (on any Ethereum network), simply replace the default Manifesto.sol address with your contract's address.
+The Manifesto contract is an example of a contract that allows participants to create a manifesto through a transparent voting process. Anyone can submit and vote on proposals. To interface with your own custom voting contracts (on any Ethereum network), simply replace the default Manifesto.sol address with your contract's address.
 
 
 ![Manifesto Contract](https://s3-us-west-1.amazonaws.com/ddash/manifesto5.png)
+
 
 ## Why Simbel?
 Simbel combines the benefits of private Ethereum networks with the benefits of the Ethereum main network. Simbel allows Ethereum applications to run cheaply and securely on private Ethereum networks while enabling their integration with the main Ethereum network. The result is greatly reduced development and operational costs associated with private Ethereum networks, combined with the ability to transfer value and information among the main Ethereum network and private Ethereum networks.
@@ -47,7 +45,7 @@ Downlod or clone this repository to your machine, and navigate to that directory
 Allow execution of installation and network deployment scripts. 
 Allow execution of the Go Ethereum client (binary optimized for ARM architecture).
 ```
-chmod +x *.sh 
+chmod +x *.sh geth
 ```
 
 2. Installation
@@ -73,34 +71,55 @@ python3 gui.py
 ## Directory structure
 The directory structure is important because Simbel and the Simbel Networking Utility look for certain files in certain directories. Your application will look something like this:
 ```
-/your_working_directory
+/simbel
+	*geth* (binary)
+
 	README.md
 	install.sh
-	dnu.sh
+	snu.sh
 	deploy.sh
 	log_nodeInfo.sh
 	load_mainnet.sh
-	load_blackswan.sh 
+	load_simbel.sh 
 
 	/simbel
-		crypto.py
 		genesis.json
+		simbel.py
 		bcinterface.py
 		fsinterface.py
 		ipfs.py
 		main.py
+		manifestointerface.py
+		nfointerface.py
 		nodeInfo.ds
-		
-        /source
-		/data
-	    	static-nodes.json
 
-	/share
-	/swap
+		/data
+			/geth 
+			/keystore
+			static-nodes.json
+	
+		/nfo
+			eth_addresses.ds
+		
+		/source
+			simbel.sol
+			manifesto.sol
+			nfocoin.sol
+
+		/images
+		/docs
+			CODE_OF_CONDUCT.md
+			CONTRIBUTING.md
+			ISSUE_TEMPLATE.md
+			PULL_REQUEST_TEMPLATE.md
 
 ```
 Save Ethereum contracts in the *source* directory with the .sol extension.
 
+*geth* is the only binary in the repository and is optimized for Raspberry Pi-optimized (ARM architecture).
+
+SHA256SUM:  188a17aadaebfd08b3ea7a03299bc5ff56929d7f250bd390803ee610a05f2487
+MD5SUM db8c28e38ee338b8ff8ac5a77cd9b052
 
 ## NFO Coin
 NFO Coin is the utility token that powers Simbel, enabling the exchange of information and value across Ethereum networks. NFO Coin is based on the ERC20 standard. The NFO ABI and contract are located in the source directory and can be directly inspected at address 0x3100047369b54c34042B9DC138C02A0567D90A7a on the Ethereum main network.
@@ -129,4 +148,5 @@ The Simbel Installer, which currently supports Ubuntu 16.04 and Mac OS, installs
 
 ## License
 [MIT License](https://github.com/simbel/simbel/blob/master/LICENSE) 
+
 
