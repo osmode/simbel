@@ -15,6 +15,8 @@ Simbel is an Ethereum Operating System for Knowledge Creation and Sharing
 
 * Interface with the Interplanetary File System ([IPFS](https://github.com/ipfs/ipfs)) to minimize on-chain storage 
 
+## Whitepaper
+[On the economics of knowledge creation and sharing](https://arxiv.org/abs/1709.07390)
 
 ## Mission Statement
 

@@ -50,9 +50,9 @@ def get_contract_name_and_address():
 	contract_name=None
 	contract_address=None
 
-	contract_name=input("Enter your contract name (leave blank for simbel)> ")
+	#contract_name=input("Enter your contract name (leave blank for simbel)> ")
 	while 1:
-		contract_address=input("Enter your contract address (leave blank for simbel)> ")
+		#contract_address=input("Enter your contract address (leave blank for simbel)> ")
 		if not contract_address: 
 			contract_address=simbel_contract_address
 

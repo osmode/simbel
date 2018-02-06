@@ -7,7 +7,6 @@
 # Installs Simbel dependencies
 
 finished=false
-pwd=$(PWD)
 
 while [ $finished = false ] 
 do
@@ -118,6 +117,8 @@ Your choice> " choice
 		sudo apt-get update
 		sudo apt-get install tmux
 		sudo apt-get install git 
+		sudo apt-get install vim
+		
 		arch="$(dpkg  --print-architecture)"
 		if [[ "$arch" -ne 'armhf' ]]; then
 			sudo apt-get install software-properties-common
