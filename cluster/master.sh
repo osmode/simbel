@@ -46,5 +46,5 @@ echo These commands will download and install MPICH, as well as add it as a path
 
 echo That last command should return five responses. Each one is a different process on Pi01 running the python program "Hello World" that we just made.
 
-echo Now that we've successfully configured our master Pi, we need to run .worker.sh scripts on the other pis
+echo Now that we have successfully configured our master Pi, we need to run .worker.sh scripts on the other pis
 
