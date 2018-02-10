@@ -10,7 +10,7 @@ echo we now need to install the primary software that is going to allow us to us
 
 sudo apt-get update
 
-mkdir mpich2
+mkdir ~/mpich2
 
 cd ~/mpich2
 
@@ -21,6 +21,8 @@ tar xfz mpich-3.2.1.tar.gz
 sudo mkdir /home/rpimpi/
 
 sudo mkdir /home/rpimpi/mpi-install
+
+sudo apt-get install nmap
 
 mkdir /home/pi/mpi-build
 
@@ -34,35 +36,15 @@ sudo make
 
 sudo make install
 
-nano .bashrc
+vim .bashrc
 
-PATH=$PATH:/home/rpimpi/mpi-install/bin
-
-sudo reboot
+echo PATH=$PATH:/home/rpimpi/mpi-install/bin >> $HOME/.bashrc
 
 mpiexec -n 1 hostname
 
 echo These commands will download and install MPICH, as well as add it as a path to your BASHRC boot file. The last command runs a test to see if it works. If the last command returns “Pi01”, then you did everything successfully.
 
-echo As it is, MPICH can run C and Fortran programs. But since the Raspberry Pi has the Python coding environment pre-installed, it would be easiest to install a Python to MPI interpreter. Here’s the commands to do that:
-
-sudo aptitude install python-dev
-
-wget https://mpi4py.googlecode.com/files/mpi4py-1.3.1.tar.gz
-
-tar -zxf mpi4py-1.3.1
-
-cd mpi4py-1.3.1
-
-python setup.py build
-
-python setup.py install
-
-export PYTHONPATH=/home/pi/mpi4py-1.3.1
-
-mpiexec -n 5 python demo/helloworld.py
-
 echo That last command should return five responses. Each one is a different process on Pi01 running the python program "Hello World" that we just made.
 
-echo Now that we've successfully configured our master Pi, we need to copy that Pi's SD card image to all the other Pi's...
+echo Now that we have successfully configured our master Pi, we need to run .worker.sh scripts on the other pis
 
