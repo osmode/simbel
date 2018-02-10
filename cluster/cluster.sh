@@ -7,11 +7,20 @@
 # https://github.com/osmode/simbel
 # USAGE:  ./cluster.sh 
 
+# copy arm-architecture geth binary into this directory
+sudo cp /home/pi/simbel/geth /home/rpimpi/mpi-install/bin/geth
+
+# create machinefile containing IP addresses
+sudo echo 10.0.0.26 >> /home/rpimpi/mpi-install/bin/machinefile
+sudo echo 10.0.0.243 >> /home/rpimpi/mpi-install/bin/machinefile
+sudo echo 10.0.0.233 >> /home/rpimpi/mpi-install/bin/machinefile
+sudo echo 10.0.0.142 >> /home/rpimpi/mpi-install/bin/machinefile
+
 # copy public keys from all rasperry pi's in the cluster
-scp 10.0.0.11:/home/pi/.ssh/pi01 /home/pi/.ssh/pi01
-scp 10.0.0.122:/home/pi/.ssh/pi02 /home/pi/.ssh/pi02
-scp 10.0.0.48:/home/pi/.ssh/pi03 /home/pi/.ssh/pi03
-scp 10.0.0.127:/home/pi/.ssh/pi04 /home/pi/.ssh/pi04
+scp 10.0.0.26:/home/pi/.ssh/pi01 /home/pi/.ssh/pi01
+scp 10.0.0.243:/home/pi/.ssh/pi02 /home/pi/.ssh/pi02
+scp 10.0.0.233:/home/pi/.ssh/pi03 /home/pi/.ssh/pi03
+scp 10.0.0.142:/home/pi/.ssh/pi04 /home/pi/.ssh/pi04
 
 # add all pis' public keys to authorized_keys
 cat /home/pi/.ssh/pi01 >> /home/pi/.ssh/authorized_keys
