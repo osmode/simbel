@@ -1,5 +1,5 @@
 # Simbel - Ethereum Operating System 
-For Ubuntu Mate (Raspberry Pi), Ubuntu 16.04, and Mac OS X.
+For Raspbian, Ubuntu, and Mac OS X.
 
 ![Simbel](https://s3-us-west-1.amazonaws.com/ddash/simbel.png)
 
