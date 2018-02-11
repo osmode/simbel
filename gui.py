@@ -379,8 +379,8 @@ def update(ind):
 	root.after(100,update,ind)
 
 def on_close():
-	process=subprocess.Popen("tmux kill-session -tgeth".split())
-	print("Quitting Simbel and killinggeth...")
+	process=subprocess.Popen("tmux kill-session -t geth".split())
+	print("Quitting Simbel and killing geth...")
 	#process=subprocess.Popen("tmux kill-session -t ipfs".split())
 	twinpeaks.master.quit()
 	print("Done.")
