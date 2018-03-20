@@ -119,15 +119,13 @@ Your choice> " choice
 		sudo apt-get install git 
 		sudo apt-get install vim
 		
-		arch="$(dpkg  --print-architecture)"
-		if [[ "$arch" -ne 'armhf' ]]; then
-			sudo apt-get install software-properties-common
-			sudo add-apt-repository -y ppa:ethereum/ethereum
-			sudo apt-get install ethereum
-			sudo add-apt-repository ppa:ethereum/ethereum
-			sudo apt-get update
-			sudo apt-get install solc
-		fi
+		#if [[ "$arch" -ne 'armhf' ]]; then
+		sudo apt-get install software-properties-common
+		sudo add-apt-repository -y ppa:ethereum/ethereum
+		sudo apt-get install ethereum
+		sudo add-apt-repository ppa:ethereum/ethereum
+		sudo apt-get update
+		sudo apt-get install solc
 	    	sudo apt-get install python3-pip
 
 	fi
