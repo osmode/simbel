@@ -44,7 +44,7 @@ class BCInterface:
 		self.write_ethereum_address(mainnet)
 
 	# contract_name is without the sol extension
-	def load_contract(self,contract_name,sender_address=None,contract_address="0x42cc68c1092fbb33b96953b96a43232d1b89b899"):
+	def load_contract(self,contract_name,sender_address=None,contract_address="0xf19ea023f27cdac0ce1c40f8f62317a18afb717a")
 
 		if len(self.eth_accounts)==0:
 			print("No Ethereum accounts found.")
