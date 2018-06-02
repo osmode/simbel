@@ -1,6 +1,6 @@
 #!/bin/bash
 # Simbel Networking Utility
-# Author: Omar N. Metwally, MD
+# Author: Omar Metwally, MD
 # omar.metwally@gmail.com
 # https://github.com/osmode/simbel
 # USAGE:  ./install.sh 
@@ -255,5 +255,4 @@ done
 
 echo -e "\033[1;32mCongratulations! Simbel has been installed on your machine. I will now attempt to start the GUI. \033[0m"
 
-python3 gui.py
 

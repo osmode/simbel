@@ -14,8 +14,8 @@ echo -e "\033[0;31mIt appears you're installing Simbel on a Raspberry Pi!  :)"
 else
 # before starting DDASH, need to start IPFS and geth daemons
 #tmux kill-session -t ipfs
-tmux kill-session -t geth
-tmux new-session -d -s geth "./geth --verbosity 3 --datadir=$PWD/simbel/data --networkid $networkId --port $port  --rpcapi=\"db,eth,net,personal,web3\" --rpc --rpcport $rpcport --mine --minerthreads=1 console"
+#tmux kill-session -t geth
+tmux new-session -d -s geth "geth --verbosity 3 --datadir=$PWD/simbel/data --networkid $networkId --port $port  --rpcapi=\"db,eth,net,personal,web3\" --rpc --rpcport $rpcport --mine --minerthreads=1 console"
 #tmux new-session -d -s ipfs 'ipfs daemon'
 fi
 

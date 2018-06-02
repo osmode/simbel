@@ -54,7 +54,7 @@ done
 fi
 
 if [ "$os" = 'Linux' ]; then
-solc --bin --abi -o $PWD/simbel/source $PWD/simbel/source/"$contract_name".sol
+solc --bin --abi -o $PWD/simbel/source $PWD/simbel/source/"$contract_name".sol --overwrite
 fi
 
 output_file=$PWD/simbel/source/"$contract_name".js

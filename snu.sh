@@ -80,9 +80,6 @@ read -p "
 
     fi
     if [ "$choice" = 4 ]; then
-	tmux kill-session -t geth
-	#tmux kill-session -t ipfs
-
 	./deploy.sh
     fi
 

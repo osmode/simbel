@@ -12,7 +12,6 @@ if [ "$os" = 'Darwin' ]; then
 # Create IPC file
 echo "exit" | geth --verbosity 2 --datadir=$PWD/simbel/data_mainnet console
 sleep 1
-tmux kill-session -t geth
 tmux new-session -d -s geth "geth --verbosity 3 --datadir=$PWD/simbel/data_mainnet console"
 sleep 5
 exit
@@ -27,24 +26,16 @@ if [[ "$arch" == 'armhf' ]]; then
 
 	echo "exit" | ./geth --verbosity 2 --datadir=$PWD/simbel/data_mainnet console
 
-	tmux kill-session -t geth
-	#tmux kill-session -t ipfs
 	tmux new-session -d -s geth "./geth --verbosity 3 --fast --cache=1024 --datadir=$PWD/simbel/data_mainnet console"
 
 # if Linux but not Raspberry Pi
 else
+# create IPC file
 echo "exit" | geth --verbosity 2 --datadir=$PWD/simbel/data_mainnet console
 
 fi
 
 sleep 5
-# before starting DDASH, need to start IPFS and geth daemons
-tmux kill-session -t geth
-#tmux kill-session -t ipfs
 tmux new-session -d -s geth "geth --verbosity 3 --fast --cache=1024 --datadir=$PWD/simbel/data_mainnet console"
-
-#tmux new-session -d -s ipfs 'ipfs daemon'
-#sleep 5
-#python3 $PWD/simbel/main.py
 
 
