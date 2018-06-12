@@ -127,6 +127,7 @@ Your choice> " choice
 		sudo apt-get update
 		sudo apt-get install solc
 	    	sudo apt-get install python3-pip
+		sudo apt-get install python3-tk
 
 	fi
 
@@ -234,9 +235,7 @@ Your choice> " choice
 	# save enode information
 	./log_nodeInfo.sh
 
-echo -e "\033[1;32mCongratulations! Simbel has been installed on your machine. I will now attempt to start the GUI. \033[0m"
-
-python3 gui.py
+echo -e "\033[1;32mCongratulations! Simbel has been installed on your machine.  \033[0m"
 
     fi  # end if [ "$choice" =1 ]
 
@@ -256,3 +255,4 @@ done
 echo -e "\033[1;32mCongratulations! Simbel has been installed on your machine. I will now attempt to start the GUI. \033[0m"
 
 
+ 
