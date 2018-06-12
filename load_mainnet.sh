@@ -12,7 +12,7 @@ if [ "$os" = 'Darwin' ]; then
 # Create IPC file
 echo "exit" | geth --verbosity 2 --datadir=$PWD/simbel/data_mainnet console
 sleep 1
-tmux new-session -d -s geth "geth --verbosity 3 --datadir=$PWD/simbel/data_mainnet console"
+tmux new-session -d -s geth "geth --verbosity 4 --datadir=$PWD/simbel/data_mainnet console"
 sleep 5
 exit
 
@@ -32,10 +32,7 @@ if [[ "$arch" == 'armhf' ]]; then
 else
 # create IPC file
 echo "exit" | geth --verbosity 2 --datadir=$PWD/simbel/data_mainnet console
+sleep 5
+tmux new-session -d -s geth "geth --verbosity 3 --datadir=$PWD/simbel/data_mainnet console"
 
 fi
-
-sleep 5
-tmux new-session -d -s geth "geth --verbosity 3 --fast --cache=1024 --datadir=$PWD/simbel/data_mainnet console"
-
-
