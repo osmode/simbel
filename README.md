@@ -1,8 +1,6 @@
 # Simbel - Ethereum Operating System 
 For Raspbian, Ubuntu, and Mac OS X.
 
-![Simbel](https://s3-us-west-1.amazonaws.com/ddash/simbel.png)
-
 ## What is Simbel?
 ---
 Simbel is an Ethereum Operating System for Knowledge Creation and Sharing
@@ -29,9 +27,6 @@ Simbel sets network time through consensus among Simbel network partipants. The 
 Abstract graphical interfaces for your own Solidity contracts using Python, Javascript, and other frameworks. 
 
 The Manifesto contract is an example of a contract that allows participants to create a manifesto through a transparent voting process. Anyone can submit and vote on proposals. To interface with your own custom voting contracts (on any Ethereum network), simply replace the default Manifesto.sol address with your contract's address.
-
-
-![Manifesto Contract](https://s3-us-west-1.amazonaws.com/ddash/manifesto5.png)
 
 
 ## Why Simbel?
